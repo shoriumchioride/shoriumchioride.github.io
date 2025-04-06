@@ -4,13 +4,15 @@ body {
   color: #fff;
   font-family: 'Helvetica Neue', sans-serif;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+  flex-direction: column; /* 使页面内容垂直排列 */
+  justify-content: space-between; /* 确保底部固定，顶部不受影响 */
+  min-height: 100vh; /* 页面最小高度为视口高度 */
   margin: 0;
 }
 .centered {
   text-align: center;
+  flex-grow: 1; /* 让主内容区域占据剩余空间 */
+  
 }
 a {
   color: #ccc;
@@ -37,6 +39,7 @@ body {
   flex-grow: 1; /* 让主内容区域占据剩余空间 */
 }
 
+/* Footer 样式 */
 footer {
   text-align: center;
   padding: 20px 0;
