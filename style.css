@@ -1,0 +1,22 @@
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Helvetica Neue', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+.centered {
+  text-align: center;
+}
+a {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0 10px;
+}
+a:hover {
+  color: #fff;
+}
