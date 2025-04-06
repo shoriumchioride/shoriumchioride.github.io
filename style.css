@@ -20,3 +20,43 @@ a {
 a:hover {
   color: #fff;
 }
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Helvetica Neue', sans-serif;
+  display: flex;
+  flex-direction: column; /* 使 body 内的元素按列排列 */
+  justify-content: space-between; /* 使元素均匀分布 */
+  height: 100vh;
+  margin: 0;
+}
+
+.centered {
+  text-align: center;
+  flex-grow: 1; /* 让主内容区域占据剩余空间 */
+}
+
+footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #333;
+  color: #fff;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+footer .social-links {
+  font-size: 1.2em;
+}
+
+footer a {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer a:hover {
+  color: #fff;
+}
