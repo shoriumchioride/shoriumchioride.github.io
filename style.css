@@ -3,18 +3,17 @@ body {
   color: #fff;
   font-family: 'Helvetica Neue', sans-serif;
   display: flex;
-  flex-direction: column; /* 内容垂直排列 */
-  justify-content: space-between; /* 内容间隔拉伸 */
+  flex-direction: column; /* 垂直排列 */
   min-height: 100vh; /* 页面最小高度为100vh */
   margin: 0;
 }
 
 .centered {
   text-align: center;
-  flex-grow: 1; /* 让这个部分占据剩余的空间 */
   display: flex;
   flex-direction: column;
-  justify-content: center; /* 让内容在垂直方向上居中 */
+  justify-content: center; /* 在垂直方向居中 */
+  flex-grow: 1; /* 占据剩余空间 */
 }
 
 a {
