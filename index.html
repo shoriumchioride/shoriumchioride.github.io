@@ -5,23 +5,166 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ShoriumChIoride's Page</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* 页面整体滚动设置 */
+    body {
+      margin: 0;
+      padding: 0;
+      scroll-snap-type: y mandatory; /* 分页滚动 */
+      overflow-y: scroll;
+      font-family: 'Helvetica Neue', sans-serif;
+    }
+
+    /* 页面分块结构，每一屏 */
+    section {
+      scroll-snap-align: start;
+      min-height: 100vh; /* 最小高度为一屏，允许内容撑开 */
+      padding: 2em;
+      margin-left: 200px; /* 为侧边栏让出空间 */
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .home {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .music {
+      background-color: #111;
+      color: #cde;
+    }
+
+    .profile {
+      background-color: #1a1a1a;
+      color: #fdd;
+    }
+
+    .footer {
+      background-color: #333;
+      color: #ccc;
+      justify-content: center;
+      height: 10;
+    }
+
+    .footer p {
+      margin: 0.5em;
+    }
+
+    a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #fff;
+    }
+
+    .centered {
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .qrcode-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  flex-direction: column;
+}
+
+.qrcode-modal .close {
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  font-size: 3em;
+  color: white;
+  cursor: pointer;
+}
+  </style>
 </head>
+
 <body>
-  <div class="centered">
-    <h1>相切过地面，向虹逃离</h1>
-    <nav>
-      <a href="diary/">日碎碎念</a> ｜ <a href="poems/">无济于事的诗</a> ｜ <a href="photos/">捕获的时空</a>
-    </nav>
-  </div>
+
+  <!-- 页面一：首页空间 -->
+  <section id="main" class="home">
+    <div class="centered">
+      <h1>相切过地面，向虹逃离</h1>
+      <nav>
+        <a href="diary/">日碎碎念</a> ｜ 
+        <a href="poems/">无济于事的诗</a> ｜ 
+        <a href="photos/">捕获的时空</a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- 页面二：音乐页 -->
+  <section id="music" class="music">
+    <div class="centered">
+      <h1>music</h1>
+      <p>
+        <a href="https://music.163.com/playlist?id=7329968915&uct2=U2FsdGVkX1+3trVl0eegHXpxKu6LMdSTRKfT2vLOIUk=" target="_blank">
+            音楽だけでいいんだろ
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- 页面三：Profile -->
+  <section id="profile" class="profile">
+    <div class="centered">
+      <h1>ChIo</h1>
+      <p>（未来在这里写 About Me）</p>
+      <p>
+        <a href="https://x.com/shoriumchioride" target="_blank">Twitter</a> ｜ 
+        <a href="https://github.com/shoriumchioride/shoriumchioride.github.io">GitHub 仓库</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- 页面四：Footer 作为最后一页 -->
+  <section class="footer">
+    <div class="centered">
+      <p>由 ChIo 和 Chamoruto 共同构筑，特别献给 Iriscarlet</p>
+      <p>Powered by “Iris” ｜ 始于 2025.04.07</p>
+      <p style="font-size: 0.8em;">God mortuus est, Deus manet est.</p>
+      <button onclick="showQRCode()">支持开发者 | 点击即请ChIo喝卡布奇诺</button> <!-- 点击执行打开文件的js-->>
+    </div>
+
+  <!-- 赞赏码模态框容器 -->
+<div class="qrcode-modal" id="qrcode-modal" style="display:none;">
+  <!-- 关闭按钮 -->
+  <span onclick="hideQRCode()">&times;</span> <!-- 点击执行关闭文件的js-->>
+  <!-- 赞赏码图片 -->
+  <img src="images/zanshang_QRcode.JPG">
+</div>
+     
+    </div>
+  </section>
+
+
 </body>
-  <footer>
-  <div class="sns-links">
-    <a href="https://x.com/shoriumchioride" target="_blank">Twitter</a> | <!--推特超链接-->
-    <a href="https://music.163.com/playlist?id=7329968915&uct2=U2FsdGVkX1+3trVl0eegHXpxKu6LMdSTRKfT2vLOIUk=" target="_blank">音楽だけでいいんだろ ----神様のダンス | </a> <!--网易云超链接-->
-    <a href="https://github.com/shoriumchioride/shoriumchioride.github.io">github 仓库地址 </a>  <!--github仓库地址超链接-->
-    <p> 由 ChIo 和 Chamoruto 共同构筑，特别献给 Iriscarlet ｜ Powered by “Iris”   <!--开发者声明-->
-  </div>
-</footer>
+<script>
+function showQRCode() {
+  document.getElementById("qrcode-modal").style.display = "flex";
+}
+
+function hideQRCode() {
+  document.getElementById("qrcode-modal").style.display = "none";
+}
+
+</script>
 </html>
 
+
 <!--The god is dead, yet Deus remains.-->
+<!--God mortuus est, Deus manet est.-->
